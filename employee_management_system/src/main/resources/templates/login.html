@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary px-3 navbar-fixed-top">
+    <a class="navbar-brand text-white" href="/">Employee Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<div class="container my-5 justify-content-center d-flex flex-column align-items-center">
+    <h3> Login </h3>
+    <div class="card col-6">
+        <div class="card-body">
+            <div class="col-12">
+                <form th:action="@{/login}" method="post">
+                    <div class="row">
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger">Invalid username or password!</div>
+                        </div>
+
+                        <div th:if="${param.logout}">
+                            <div class="alert alert-info">You have been logged out!</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-form-label">Email</label> <input type="text" required autofocus class="form-control" id="username" name="username" placeholder="Enter Email Address"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">Password</label> <input type="password" required class="form-control" id="password" name="password" placeholder="Enter Password"/>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <input type="submit" class="btn btn-primary" value="Login"/>
+                        </div>
+
+                       <!-- <div class="row">
+                            <span>Don't have an account? <a th:href="@{/registration/}"> Register here</a></span>
+                        </div>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

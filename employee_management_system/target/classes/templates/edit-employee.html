@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary px-3">
+    <a class="navbar-brand text-white" href="/employees/">Employee Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/employees/">Employees</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link text-white" href="/employees/create/">Create Employee</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link text-white" href="/users/">Users</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link text-white" href="/users/create/">Create User</a>
+            </li>
+        </ul>
+        <span class="navbar-text text-white mx-4">
+                Welcome <span sec:authentication="principal.username">, User</span>
+            </span>
+        <span class="navbar-text mx-4" sec:authorize="isAuthenticated()">
+                <a class="nav-link text-white" th:href="@{/logout}">Logout</a>
+            </span>
+    </div>
+</nav>
+<div class="container my-5 justify-content-center d-flex flex-column align-items-center">
+    <h3>Update Employee</h3>
+    <div class="card col-6 ">
+        <div class="card-body">
+            <div class="col-12">
+                <form action="#" th:action="@{/employees/update/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="fname" class="col-form-label">Employee First Name</label> <input type="text" th:field="*{fname}" class="form-control" id="fname" placeholder="Enter First Name"> <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname" class="col-form-label">Employee Last Name</label> <input type="text" th:field="*{lname}" class="form-control" id="lname" placeholder="Enter Last Name"> <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Employee Email</label> <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter Email"> <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-3">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
