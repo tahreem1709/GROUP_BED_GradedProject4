@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "b0b17183-1b51-4f68-9dfc-dcd75b69283b",
+		"name": "Graded Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1471504"
+	},
+	"item": [
+		{
+			"name": "Login Get CSRF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8068/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"protocolProfileBehavior": {
+				"followRedirects": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_csrf",
+							"value": "CEKob1NsKM9fa1V4Tb0IlXdsJojPp5zL3kIiV2vHYoS_Cp_bbSedCWFeTv1yWTcZeZA8pxMNC-mukPjm7SBHZlyjUubdOant",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin@ems.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "AdminUser@123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8068/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8068/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Employees with Sort Ascending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8068/v1/employees/sort?order=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"v1",
+						"employees",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Employees with Sort Descending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8068/v1/employees/sort?order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"v1",
+						"employees",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Akthar",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Hussain",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ahussain@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "AdminAkthar@123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ROLE_ADMIN",
+							"type": "text"
+						},
+						{
+							"key": "_csrf",
+							"value": "_tOXoCLJVxJ1pvUGqm-9sP06_WbHe1MYwdEbvJYqDTA4JlGYz7HxmEH4ZSpYxcc0n0KJiMlb0F_wQmE1p7V4j6AbPAleRGmh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8068/v1/users/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"v1",
+						"users",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Akthar",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Hussain",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ahussain@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "AdminAkthar@123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ROLE_ADMIN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8068/users/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"users",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Akthar",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Hussain",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ahussain@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "AdminAkthar@123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ROLE_ADMIN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8068/employees/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"employees",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fname",
+							"value": "Zuber",
+							"type": "text"
+						},
+						{
+							"key": "lname",
+							"value": "Mohd",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zuber.mohd@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "_csrf",
+							"value": "6phFURCmunkDsp5XtESXKZOH6Uuw-gkuDJIFnRAIdZBuFLik2_ojaXOXiEEu0axlgWmjEafmxHKHwzsDavZmriY5RKkIdoCd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8068/v1/employees/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8068",
+					"path": [
+						"v1",
+						"employees",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
